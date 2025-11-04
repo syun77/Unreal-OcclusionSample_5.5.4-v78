@@ -1,8 +1,10 @@
 # パススルーメッシュ確認用プロジェクト
 
+このプロジェクトはフォーク元のサンプルプロジェクト (Unreal-OcclusionSampe) を改造して、パススルーメッシュの動作を検証するプロジェクトです。
+
 ## Occlusionsレベルについて
 
-<img width="1424" height="584" alt="image" src="https://github.com/user-attachments/assets/8503e0da-472c-449a-8f94-2e724d6b945d" />
+<img width="1434" height="584" alt="image" src="https://github.com/user-attachments/assets/508b5c39-0602-4532-91a6-9940573b797e" />
 
 Occlusionレベルの以下のすべてのメッシュに対してパススルーメッシュを適用 (OculusXRPassthroughLayerCompoent::AddStaticSurfaceGeometry()を使用)
 
