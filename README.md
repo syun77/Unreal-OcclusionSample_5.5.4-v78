@@ -1,90 +1,124 @@
-# Occlusion Sample
+以下は、Meta Developer Support に提出する英文版 README として自然で技術的にも正確な英訳です。文法とトーンを正式な技術文書向けに調整しています。
 
-This sample provides a simple scene with passthrough enabled and a few VR objects to demonstrate the use of Occlusions using the Depth API.
+---
 
-## Occlusion Modes
+# Passthrough Mesh Verification Project
 
-Press the A or X buttons on your controller to cycle through the different occlusion modes:
+This project is a modified version of the original sample project **(Unreal-OcclusionSample)**, created to verify the behavior of **passthrough meshes** in Unreal Engine.
 
-**Disabled**
+> This project and README are intended to be submitted to **Meta Developer Support** for verification and technical investigation.
 
-When occlusions are disabled, virtual content will always be rendered on top of passthrough.
+---
 
-![Unreal Scene Sample](Media/NoOcclusions.jpg)
+## Overview
 
-**Hard Occlusions**
+* When **Soft Occlusion** is enabled, some meshes with applied passthrough render correctly, while others fail to display passthrough at all.
+* With Soft Occlusion enabled, only certain meshes (specifically the `Plane` mesh) handle depth correctly. For other passthrough meshes, the areas affected by depth appear as **dark fog** or **blackened regions**, as if depth blending fails.
 
-When hard occlusions are enabled you will see that real objects in your environment (e.g. tables, walls, furniture, hands) will occlude the virtual objects rendered by Unreal based on their relative depths.
+We would appreciate guidance on:
 
-Hard occlusions provide a simple non-intrusive way to enable occlusions in your app but have a hard jagged edge at the boundary of occluded objects.
+1. Why these issues occur, and
+2. What specific mesh or system configurations are required to resolve them.
 
-![Unreal Scene Sample](Media/HardOcclusions.jpg)
+Additionally, we would like clarification on the following potential limitations of Soft Occlusion:
 
-**Soft Occlusions**
+* When using the **Depth API**, is there any method to render distant meshes (e.g., background geometry several meters away) correctly?
 
-Soft occlusions improve the quality of the edges by applying a smooth gradient so that the transition is less noticeable. However, more intrusive engine changes were required to support this and so you must use Meta's fork of the engine in order to make use of soft occlusions.
+  * We confirmed that even **Hard Occlusion** fails to display distant meshes properly.
+* The Meta documentation ([MR Depth System Health](https://developers.meta.com/horizon/design/mr-health-depth/?utm_source=chatgpt.com)) states that the depth system has limitations beyond **4 meters**. We would like confirmation on whether this is an absolute limit.
 
-![Unreal Scene Sample](Media/SoftOcclusions.jpg)
+---
 
-## Hands removal
+## Description of the Modified Sample
 
-In order to see hands removal in action, put the controllers down and hold your hands in front of you until you see the virtual hands appear. Then use the pinch action to toggle hands removal on/off. When hands removal is enabled you should clearly see the virtual hands without being occluded. When hands removal is disabled you will see depth fighting between your real and virtual hands.
+Below is an outline of the changes made to the original **Unreal-OcclusionSample** project.
 
-## Environment Depth material graph node
+### Occlusion Mode Switching
 
-In this sample there is a material named `M_EnvironmentDepth` which demonstrates the use of the Environment Depth material graph node. The material is applied to 2 quads on the left and right of the user when the app starts. The material shows the raw environment depth where red represents objects close to you and blue represents objects far away, the color gradient ranges from 0 to 3 meters and anything beyond will be displayed in blue.
+This remains unchanged from the original project.
+You can toggle between **Normal**, **Hard Occlusion**, and **Soft Occlusion** modes using the `[A]` or `[X]` buttons.
 
-![Unreal Scene Sample](Media/MaterialGraphNode.jpg)
+---
 
-Note: This node is only available in the Meta UE fork, if you load the sample without the fork this node will be missing and the material will show up as a solid red color.
+### Occlusions Level
 
-## How to Use
+To test Soft Occlusion behavior on passthrough-applied meshes, the **Occlusions** level was modified as follows:
 
-### Load the project
+<img width="1434" height="584" alt="image" src="https://github.com/user-attachments/assets/508b5c39-0602-4532-91a6-9940573b797e" />
 
-First, ensure you have Git LFS installed by running this command:
-```sh
-git lfs install
-```
+All meshes in this level were assigned passthrough geometry using
+`OculusXRPassthroughLayerComponent::AddStaticSurfaceGeometry()`.
 
-Then, clone this repo using the "Code" button above, or this command:
-```sh
-git clone https://github.com/oculus-samples/Unreal-OcclusionSample
-```
+| Mesh     | Blueprint           | Result                                                      |
+| -------- | ------------------- | ----------------------------------------------------------- |
+| Plane    | BP_EnvironmentDepth | ✅ Soft Occlusion works correctly                            |
+| 1M_Cube  | BP_Cube             | ❌ Appears as a dark fog; passthrough fails in large regions |
+| SM_Plane | BP_Plane            | ❌ Appears as a dark fog; passthrough fails in large regions |
 
-### Launch the project in the Unreal Editor using one of the following options.
+<img width="434" height="554" alt="image" src="https://github.com/user-attachments/assets/9cd7b198-264b-4c44-8e06-e973896680e2" />
 
-#### Epic Games Launcher with MetaXR plugin
+---
 
-The easiest way to get started is to use the prebuilt Unreal Engine from the Epic Games Launcher, with MetaXR plugin. **However, if you use this method then only hard occlusions will work. You must use Meta's fork for soft occlusions support.**
+### Applying Passthrough Meshes
 
+In the **Occlusions Level Blueprint**, the `Begin Play` event uses the `OculusXRPassthroughLayerComponent` attached to `VRPawn` to call
+`Add Static Surface Geometry` and assign passthrough meshes.
 
-1. Install the [Epic Games Launcher](https://www.epicgames.com/store/en-US/download)
-2. In the launcher, install UE5 (recommended).
-3. Download and install the MetaXR plugin from the [Unreal Engine 5 Integration download page](https://developer.oculus.com/downloads/package/unreal-engine-5-integration).
-4. Launch the Unreal Editor
-5. From "Recent Projects", click "Browse" and select `OcclusionSample.uproject`
+<img width="1894" height="571" alt="image" src="https://github.com/user-attachments/assets/5511d8ab-25fc-4f58-8057-6b412aff1962" />
 
-#### Meta fork of Epic’s Unreal Engine
+---
 
-The Meta fork of Epic’s Unreal Engine will give you the most up to date integration of Oculus features. However, you must build the editor from its source.
+### VRPawn Configuration
 
-Follow the instructions on [Accessing Unreal Engine source code on GitHub](https://www.unrealengine.com/en-US/ue-on-github) to obtain:
-- an Epic account
-- a GitHub account
-- authorization to access the Unreal Engine source repository
-Disregard instructions on downloading Epic’s Unreal Engine source code as you will be building the Meta fork of Epic’s Unreal Engine source.
+The `VRPawn` actor includes an attached **OculusXRPassthroughLayer** component configured as follows:
 
-Make sure you have Visual Studio installed properly:
-- Launch the Visual Studio Installer and click Modify for the Visual Studio version you want to use.
-- Under the Workloads tab, click Game development with C++ if it isn’t checked and then click Modify.
+<img width="273" height="123" alt="image" src="https://github.com/user-attachments/assets/f30840b3-3ae0-4e32-961b-888d27a88d3a" />
+<img width="546" height="246" alt="image" src="https://github.com/user-attachments/assets/9fa3dfd9-5b74-4a4a-9889-bc339fbb80b4" />
 
-1. Download the source code from the [Meta fork of Epic’s Unreal Engine on GitHub](https://github.com/Oculus-VR/UnrealEngine).
-2. Follow Epic’s instructions on [Building Unreal Engine from Source](https://dev.epicgames.com/documentation/en-us/unreal-engine/building-unreal-engine-from-source/) to complete the process.
-3. Launch the Unreal Editor
-4. From "Recent Projects", click "Browse" and select `OcclusionSample.uproject`
+* **Support Depth**: ON
+* **Stereo Layer Shape**: User Defined Passthrough Layer
+* **Layer Placement**: Overlay
 
-Depending on your machine, the build may take awhile to complete.
+With this setup, the **Persistent Passthrough** from the original project’s level blueprint has been disabled.
 
-# Licenses
-The Meta License applies to the SDK and supporting material. The MIT License applies to only certain, clearly marked documents. If an individual file does not indicate which license it is subject to, then the Meta License applies.
+<img width="886" height="376" alt="image" src="https://github.com/user-attachments/assets/a95c75c3-d88b-46ec-844a-d4fc2bfd1974" />
+
+---
+
+### Mesh Settings
+
+For both `1M_Cube` and `SM_Plane`, the **Allow CPU Access** option has been enabled to allow passthrough geometry to be added.
+
+<img width="421" height="181" alt="image" src="https://github.com/user-attachments/assets/d2893bd4-6361-411c-9311-e98d7544b1c9" />
+
+---
+
+### Log File
+
+Execution log:
+[Log_20251104.log](https://github.com/syun77/Unreal-OcclusionSample_5.5.4-v78/blob/main/Log_20251104.log)
+
+---
+
+## Videos
+
+### Hard Occlusion
+
+Hard Occlusion behaves as expected; depth-based ordering is rendered correctly.
+
+![ue5](https://github.com/user-attachments/assets/fead03a4-0e3e-4741-b16e-fc77fa21017f)
+
+---
+
+### Soft Occlusion
+
+Soft Occlusion shows several unexpected visual artifacts:
+
+![ue5](https://github.com/user-attachments/assets/8077446d-b6b4-4868-8312-7105641a1feb)
+
+* Some meshes correctly display passthrough, while others appear **black or opaque** where passthrough should be visible.
+* For all meshes except `Plane (BP_EnvironmentDepth)`, areas affected by depth blending appear as **dark fog or shadows**.
+
+---
+
+Would you like me to make this into a polished **Markdown README.md** file (with proper formatting, section anchors, and Meta support submission style)? I can also make a concise summary paragraph (for the support ticket text box).
