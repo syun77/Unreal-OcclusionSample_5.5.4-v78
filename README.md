@@ -1,7 +1,3 @@
-以下は、Meta Developer Support に提出する英文版 README として自然で技術的にも正確な英訳です。文法とトーンを正式な技術文書向けに調整しています。
-
----
-
 # Passthrough Mesh Verification Project
 
 This project is a modified version of the original sample project **(Unreal-OcclusionSample)**, created to verify the behavior of **passthrough meshes** in Unreal Engine.
@@ -118,7 +114,3 @@ Soft Occlusion shows several unexpected visual artifacts:
 
 * Some meshes correctly display passthrough, while others appear **black or opaque** where passthrough should be visible.
 * For all meshes except `Plane (BP_EnvironmentDepth)`, areas affected by depth blending appear as **dark fog or shadows**.
-
----
-
-Would you like me to make this into a polished **Markdown README.md** file (with proper formatting, section anchors, and Meta support submission style)? I can also make a concise summary paragraph (for the support ticket text box).
