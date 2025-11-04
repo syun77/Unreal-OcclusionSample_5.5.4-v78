@@ -36,6 +36,13 @@ VRPawnには、`OculusXRPassthroughLayer`をアタッチして、パススルー
 
 <img width="886" height="376" alt="image" src="https://github.com/user-attachments/assets/a95c75c3-d88b-46ec-844a-d4fc2bfd1974" />
 
+## メッシュの設定について
+
+`1M_Cube` と `SM_Plane` について、パススルーを適用するため `Allow CPUAccess` を ON にしています。
+
+BP_EnvironmentDepth<img width="341" height="62" alt="image" src="https://github.com/user-attachments/assets/561b52f9-6c48-466b-afb7-e188e0eaf5a3" />
+
+
 ## 動画
 
 ### ハードオクリュージョン
