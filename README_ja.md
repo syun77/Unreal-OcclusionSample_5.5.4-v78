@@ -13,7 +13,11 @@
 
 - Depth APIを使用した場合に、遠景メッシュ（遠く離れた部分にある背景となるメッシュ）を正常に表示する方法はあるのか。（ハードオクリュージョンでも遠景メッシュが正しく表示できないことを確認しています）
 
-## Occlusionsレベルについて
+## サンプルプロジェクトの説明
+
+以下にこのサンプルプロジェクトを元のサンプルプロジェクトからどのように変更したのかを記載します。
+
+### Occlusionsレベルについて
 
 Occlusionsレベルについて、パススルーメッシュを適用した状態でのソフトオクリュージョンを検証するため以下のようにメッシュを配置しました。
 
@@ -27,13 +31,13 @@ Occlusionレベルの以下のすべてのメッシュに対してパススル�
 
 <img width="434" height="554" alt="image" src="https://github.com/user-attachments/assets/9cd7b198-264b-4c44-8e06-e973896680e2" />
 
-## パススルーメッシュの適用について
+### パススルーメッシュの適用について
 
 Occusionsレベルのレベルブループリントの `Begin Play`において、`PlayerPawn(VRPawn)`にアタッチ済みの`OculusXRPassthroughLayerCompoent`を使用して`Add Static Surface Geometry`でパススルーメッシュを適用しています。
 
 <img width="1894" height="571" alt="image" src="https://github.com/user-attachments/assets/5511d8ab-25fc-4f58-8057-6b412aff1962" />
 
-## VRPawnの設定
+### VRPawnの設定
 VRPawnには、`OculusXRPassthroughLayer`をアタッチして、パススルーメッシュを使うようにしています。
 
 <img width="273" height="123" alt="image" src="https://github.com/user-attachments/assets/f30840b3-3ae0-4e32-961b-888d27a88d3a" />
@@ -47,7 +51,7 @@ VRPawnには、`OculusXRPassthroughLayer`をアタッチして、パススルー
 
 <img width="886" height="376" alt="image" src="https://github.com/user-attachments/assets/a95c75c3-d88b-46ec-844a-d4fc2bfd1974" />
 
-## メッシュの設定について
+### メッシュの設定について
 
 `1M_Cube` と `SM_Plane` について、パススルーを適用するため `Allow CPUAccess` を ON にしています。
 
@@ -55,6 +59,7 @@ BP_EnvironmentDepth<img width="341" height="62" alt="image" src="https://github.
 
 
 ## 動画
+最後にサンプルプロジェクトの実行結果となるGIF動画を添付しておきます。 
 
 ### ハードオクリュージョン
 ハードオクリュージョンについての動作については問題ありません。デプスによって前後関係が正常に処理されます。
