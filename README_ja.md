@@ -40,3 +40,6 @@ VRPawnには、`OculusXRPassthroughLayer`をアタッチして、パススルー
 
 ![ue5](https://github.com/user-attachments/assets/fead03a4-0e3e-4741-b16e-fc77fa21017f)
 
+### ソフトオクリュージョン
+
+![ue5](https://github.com/user-attachments/assets/8077446d-b6b4-4868-8312-7105641a1feb)
