@@ -4,6 +4,8 @@
 
 ## Occlusionsレベルについて
 
+Occlusionsレベルについて、パススルーメッシュを適用した状態でのソフトオクリュージョンを検証するため以下のようにメッシュを配置しました。
+
 <img width="1434" height="584" alt="image" src="https://github.com/user-attachments/assets/508b5c39-0602-4532-91a6-9940573b797e" />
 
 Occlusionレベルの以下のすべてのメッシュに対してパススルーメッシュを適用 (`OculusXRPassthroughLayerCompoent::AddStaticSurfaceGeometry()`を使用)
