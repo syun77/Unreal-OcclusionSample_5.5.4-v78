@@ -33,3 +33,7 @@ VRPawnには、`OculusXRPassthroughLayer`をアタッチして、パススルー
 この設定によりサンプルプロジェクトで使用していたOccusionsレベルのレベルブループリントの `Persistent Passthrough` は無効化しています。
 
 <img width="886" height="376" alt="image" src="https://github.com/user-attachments/assets/a95c75c3-d88b-46ec-844a-d4fc2bfd1974" />
+
+## 動画
+
+<video src="https://github.com/syun77/Unreal-OcclusionSample_5.5.4-v78/blob/main/com.oculus.vrshell-20251104-160840-0.mp4"></video>
