@@ -6,7 +6,7 @@
 
 <img width="1434" height="584" alt="image" src="https://github.com/user-attachments/assets/508b5c39-0602-4532-91a6-9940573b797e" />
 
-Occlusionレベルの以下のすべてのメッシュに対してパススルーメッシュを適用 (OculusXRPassthroughLayerCompoent::AddStaticSurfaceGeometry()を使用)
+Occlusionレベルの以下のすべてのメッシュに対してパススルーメッシュを適用 (`OculusXRPassthroughLayerCompoent::AddStaticSurfaceGeometry()`を使用)
 
 - BP_EnvironmentDepth (Plane Mesh): ⭕️正常にソフトオクリュージョンが機能します
 - BP_Cube (1M_Cube): ❌️ソフトオクリュージョンの範囲が黒いモヤのような見た目となります
@@ -14,6 +14,17 @@ Occlusionレベルの以下のすべてのメッシュに対してパススル�
 
 ## パススルーメッシュの適用について
 
-Occusionsレベルのレベルブループリントの Begin Playにおいて、PlayerPawnにアタッチ済みのOculusXRPassthroughLayerCompoentを使用してAdd Static Surface Geometry でパススルーメッシュを適用しています。
+Occusionsレベルのレベルブループリントの `Begin Play`において、`PlayerPawn (VRPawn) `にアタッチ済みの`OculusXRPassthroughLayerCompoent`を使用して`Add Static Surface Geometry`でパススルーメッシュを適用しています。
 
 <img width="1894" height="571" alt="image" src="https://github.com/user-attachments/assets/5511d8ab-25fc-4f58-8057-6b412aff1962" />
+
+## VRPawnの設定
+VRPawnには、`OculusXRPassthroughLayer`をアタッチして、パススルーメッシュを使うようにしています。
+
+<img width="273" height="123" alt="image" src="https://github.com/user-attachments/assets/f30840b3-3ae0-4e32-961b-888d27a88d3a" />
+<img width="546" height="246" alt="image" src="https://github.com/user-attachments/assets/9fa3dfd9-5b74-4a4a-9889-bc339fbb80b4" />
+
+- Support Depth: ON
+- Stereo Layer Shape: User Defined Passthrough Layer
+- Layer Placement: Overlay
+
