@@ -59,6 +59,11 @@ VRPawnには、`OculusXRPassthroughLayer`をアタッチして、パススルー
 
 BP_EnvironmentDepth<img width="341" height="62" alt="image" src="https://github.com/user-attachments/assets/561b52f9-6c48-466b-afb7-e188e0eaf5a3" />
 
+### ログファイル
+
+実行ログは以下のファイルとなります。
+
+https://github.com/syun77/Unreal-OcclusionSample_5.5.4-v78/blob/main/Log_20251104.log
 
 ## 動画
 最後にサンプルプロジェクトの実行結果となるGIF動画を添付しておきます。 
