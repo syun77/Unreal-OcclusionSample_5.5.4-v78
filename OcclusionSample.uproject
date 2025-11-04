@@ -1,5 +1,6 @@
 {
 	"FileVersion": 3,
+	"EngineAssociation": "{C9B6CCF4-4B05-B881-63E0-FDB9D15B7B78}",
 	"Category": "",
 	"Description": "",
 	"Plugins": [
@@ -9,7 +10,8 @@
 			"SupportedTargetPlatforms": [
 				"Win64",
 				"Android"
-			]
+			],
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/8313d8d7e7cf4e03a33e79eb757bccba"
 		}
 	],
 	"TargetPlatforms": [
