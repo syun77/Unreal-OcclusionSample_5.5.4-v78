@@ -2,7 +2,7 @@
 
 このプロジェクトはフォーク元のサンプルプロジェクト (Unreal-OcclusionSampe) を改造して、パススルーメッシュの動作を検証するプロジェクトです。
 
->このプロジェクトは Meta Developer Centerに検証用として提出するプロジェクト・Readmeとなります。
+>このプロジェクトは Meta Developer Support様に検証用として提出するプロジェクト・Readmeとなります。
 
 ## 概要
 
