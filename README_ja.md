@@ -24,9 +24,9 @@ VRPawnには、`OculusXRPassthroughLayer`をアタッチして、パススルー
 <img width="273" height="123" alt="image" src="https://github.com/user-attachments/assets/f30840b3-3ae0-4e32-961b-888d27a88d3a" />
 <img width="546" height="246" alt="image" src="https://github.com/user-attachments/assets/9fa3dfd9-5b74-4a4a-9889-bc339fbb80b4" />
 
-- Support Depth: ON
-- Stereo Layer Shape: User Defined Passthrough Layer
-- Layer Placement: Overlay
+- `Support Depth`: ON
+- `Stereo Layer Shape`: User Defined Passthrough Layer
+- `Layer Placement`: Overlay
 
 この設定によりサンプルプロジェクトで使用していた `Persistent Passthrough` は無効化しています。
 
