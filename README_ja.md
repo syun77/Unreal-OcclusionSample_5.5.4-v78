@@ -8,9 +8,11 @@
 
 Occlusionレベルの以下のすべてのメッシュに対してパススルーメッシュを適用 (`OculusXRPassthroughLayerCompoent::AddStaticSurfaceGeometry()`を使用)
 
-- Plane Mesh (BP_EnvironmentDepth): ⭕️正常にソフトオクリュージョンが機能します
+- Plane (BP_EnvironmentDepth): ⭕️正常にソフトオクリュージョンが機能します
 - 1M_Cube (BP_Cube): ❌️ソフトオクリュージョンの範囲が黒いモヤのような見た目となります
-- SM Plane (BP_Plane): ❌️ソフトオクリュージョンの範囲が黒いモヤのような見た目となります
+- SM_Plane (BP_Plane): ❌️ソフトオクリュージョンの範囲が黒いモヤのような見た目となります
+
+<img width="434" height="554" alt="image" src="https://github.com/user-attachments/assets/9cd7b198-264b-4c44-8e06-e973896680e2" />
 
 ## パススルーメッシュの適用について
 
