@@ -28,6 +28,6 @@ VRPawnには、`OculusXRPassthroughLayer`をアタッチして、パススルー
 - `Stereo Layer Shape`: User Defined Passthrough Layer
 - `Layer Placement`: Overlay
 
-この設定によりサンプルプロジェクトで使用していた `Persistent Passthrough` は無効化しています。
+この設定によりサンプルプロジェクトで使用していたOccusionsレベルのレベルブループリントの `Persistent Passthrough` は無効化しています。
 
 <img width="886" height="376" alt="image" src="https://github.com/user-attachments/assets/a95c75c3-d88b-46ec-844a-d4fc2bfd1974" />
