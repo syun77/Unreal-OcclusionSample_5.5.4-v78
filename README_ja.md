@@ -10,3 +10,8 @@ Occlusionレベルの以下のすべてのメッシュに対してパススル�
 - BP_Cube (1M_Cube): ソフトオクリュージョンの範囲が黒いモヤのような見た目となります
 - BP_Plane (SM Plane): ソフトオクリュージョンの範囲が黒いモヤのような見た目となります
 
+## パススルーメッシュの適用について
+
+Occusionsレベルのレベルブループリントの Begin Playにおいて、PlayerPawnにアタッチ済みのOculusXRPassthroughLayerCompoentを使用してAdd Static Surface Geometry でパススルーメッシュを適用しています。
+
+<img width="1894" height="571" alt="image" src="https://github.com/user-attachments/assets/5511d8ab-25fc-4f58-8057-6b412aff1962" />
