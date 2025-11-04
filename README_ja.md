@@ -55,5 +55,5 @@ BP_EnvironmentDepth<img width="341" height="62" alt="image" src="https://github.
 
 ![ue5](https://github.com/user-attachments/assets/8077446d-b6b4-4868-8312-7105641a1feb)
 
-- パススルーが表示されるメッシュと大部分が黒くなる（パススルーが表示されない）メッシュが存在する
+- パススルーが正常に表示されるメッシュと、それとは別に大部分が黒くなる（パススルーが表示されない）メッシュが存在する (ハードオクリュージョンの設定の場合は正常にパススルーメッシュとして機能しています)
 - `Plane` (BP_EnvironmentDepth) 以外のメッシュでは、ソフトオクリュージョンのデプス処理によって見た目が黒くなってしまう
