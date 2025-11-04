@@ -36,4 +36,4 @@ VRPawnには、`OculusXRPassthroughLayer`をアタッチして、パススルー
 
 ## 動画
 
-<video src="https://github.com/syun77/Unreal-OcclusionSample_5.5.4-v78/blob/main/com.oculus.vrshell-20251104-160840-0.mp4"></video>
+https://github.com/syun77/Unreal-OcclusionSample_5.5.4-v78/blob/main/com.oculus.vrshell-20251104-160840-0.mp4
