@@ -39,9 +39,14 @@ VRPawnには、`OculusXRPassthroughLayer`をアタッチして、パススルー
 ## 動画
 
 ### ハードオクリュージョン
+ハードオクリュージョンについての動作については問題ありません。デプスによって前後関係が正常に処理されます。
 
 ![ue5](https://github.com/user-attachments/assets/fead03a4-0e3e-4741-b16e-fc77fa21017f)
 
 ### ソフトオクリュージョン
+ソフトオクリュージョンはいくつかの奇妙な表示がされます。
 
 ![ue5](https://github.com/user-attachments/assets/8077446d-b6b4-4868-8312-7105641a1feb)
+
+- パススルーが表示されるメッシュと大部分が黒くなる（パススルーが表示されない）メッシュが存在する
+- `Plane` (BP_EnvironmentDepth) 以外のメッシュでは、ソフトオクリュージョンのデプス処理によって見た目が黒くなってしまう
