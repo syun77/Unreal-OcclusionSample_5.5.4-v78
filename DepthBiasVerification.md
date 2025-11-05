@@ -14,6 +14,8 @@ This parameter is used to mitigate *depth fighting* or *z-fighting* issues that 
 A small positive value (typically around **0.06**) is used.
 This gives the virtual object a slight priority over the real-world depth, ensuring it is rendered just in front of the physical surface.
 
+- https://developers.meta.com/horizon/documentation/unreal/unreal-depthapi-occlusions-get-started/
+
 ## Test Results
 
 We set **XR Soft Occlusions Depth Bias** to **0.06** on meshes with passthrough applied.
