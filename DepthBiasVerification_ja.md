@@ -12,7 +12,7 @@ XR Soft Occlusions Depth Biasはソフトオクリュージョンに関するマ
 
 ## 検証結果
 
-XR Soft Occlusions Depth Biasを設定することによって、デプス処理の描画範囲が黒いモヤとな現象に変化はありませんでした。
+XR Soft Occlusions Depth Biasを設定することによって、デプス処理の描画範囲が黒いモヤとなる問題の解決はできませんでした。
 
 ## 補足事項
 
