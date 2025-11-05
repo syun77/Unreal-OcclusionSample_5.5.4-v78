@@ -64,12 +64,13 @@ VRPawnには、`OculusXRPassthroughLayer`をアタッチして、パススルー
 
 <img width="421" height="181" alt="image" src="https://github.com/user-attachments/assets/d2893bd4-6361-411c-9311-e98d7544b1c9" />
 
-### マテリアル設定
+### マテリアル設定 (CubeMaterial)
 
 `1M_Cube` と `SM_Plane` で使用しているマテリアル `CubeMaterial` の `XR Soft Occlusions Depth Bias` を `0.06` にしています。
 これは仮想オブジェクトにバイアスを加えるものですが、これによりオクリュージョンの精度が上がるとの情報がありいったん設定しています。
 
 <img width="484" height="206" alt="image" src="https://github.com/user-attachments/assets/d8bb058e-2345-442d-a31d-ec209ad9fc6f" />
+
 
 ### ログファイル
 
